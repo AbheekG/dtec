@@ -33,14 +33,16 @@ vector<string> clean_dotdot (vector<string> lines) {
 	return tokens;
 }
 
-vector<string> clean_curly (string line) {
+vector<string> clean_special (string line) {
 
-	// cout << "In clean_commas : " << line << endl;
+	const static vector<string> Special = {"{", "}", "=", ":", "|", "*"};
 	
 	vector<string> tokens;
 	// tokens.push_back(line); return tokens;
 	while (line.size() > 0) {
-		auto i = std::min (line.find("{"), line.find("}") ) ;
+		auto i = string::npos;
+		for (auto s : Special ) i = std::min (i, line.find(s));
+		
 		if (i == string::npos) {
 			tokens.push_back (line);
 			break;
@@ -61,7 +63,7 @@ vector<string> clean_commas (string line) {
 	vector<string> tokens;
 	while (line.size() > 0) {
 		auto i = line.find(",");
-		vector_push_back ( tokens, clean_dotdot( clean_curly ( line.substr(0, i) ) ) );
+		vector_push_back ( tokens, clean_dotdot( clean_special ( line.substr(0, i) ) ) );
 		if (i == string::npos) {
 			break;
 		} else {
@@ -103,17 +105,18 @@ vector<string> Model::lexer (const string &file_name) {
 	file.open(file_name.c_str());
 
 	if (file) {
-		cout << "File " << file_name << " opened.\n";
+		cout << "\nFile " << file_name << " opened.\n";
 		while (getline( file, line )) {
 			line = line.substr( 0, line.find("#") );
 			// if (line.find("\t") != string::npos) cout << line << " has TAB.\n";
 			// cout << line.size() << " $ " << line << endl;
-			tokens = clean_line (line);
-			for (auto &token : tokens) cout << token << endl;
+			vector_push_back (tokens, clean_line (line));
+			// for (auto &token : tokens) cout << token << endl;
+			// cout << "Parsed a line\n";
 		}
 		file.close();
 	} else {
-		cout << "File " << file_name << " couldn't be opened.\n";
+		cout << "\nFile " << file_name << " couldn't be opened.\n";
 	}
 
 	// TODO: Token keyword match
