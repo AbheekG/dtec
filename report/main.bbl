@@ -1,0 +1,153 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{8}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Chatterjee, Doyen, Filiot, and
+  Raskin}{Chatterjee et~al\mbox{.}}{2014}]%
+        {chatterjee2014doomsday}
+\bibfield{author}{\bibinfo{person}{Krishnendu Chatterjee},
+  \bibinfo{person}{Laurent Doyen}, \bibinfo{person}{Emmanuel Filiot}, {and}
+  \bibinfo{person}{Jean-Fran{\c{c}}ois Raskin}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Doomsday equilibria for omega-regular games}. In
+  \bibinfo{booktitle}{\emph{International Conference on Verification, Model
+  Checking, and Abstract Interpretation}}. Springer, \bibinfo{pages}{78--97}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chatterjee, Henzinger, and
+  Jurdziński}{Chatterjee et~al\mbox{.}}{2006}]%
+        {chatterjee2006secure}
+\bibfield{author}{\bibinfo{person}{Krishnendu Chatterjee},
+  \bibinfo{person}{Thomas~A. Henzinger}, {and} \bibinfo{person}{Marcin
+  Jurdziński}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{Games with secure equilibria}.
+\newblock \bibinfo{journal}{\emph{Theoretical Computer Science}}
+  \bibinfo{volume}{365}, \bibinfo{number}{1} (\bibinfo{year}{2006}),
+  \bibinfo{pages}{67 -- 82}.
+\newblock
+\showISSN{0304-3975}
+\urldef\tempurl%
+\url{https://doi.org/10.1016/j.tcs.2006.07.032}
+\showDOI{\tempurl}
+\newblock
+\shownote{Formal Methods for Components and Objects.}
+
+
+\bibitem[\protect\citeauthoryear{Emerson and Jutla}{Emerson and Jutla}{1991}]%
+        {emerson1991tree}
+\bibfield{author}{\bibinfo{person}{E~Allen Emerson} {and}
+  \bibinfo{person}{Charanjit~S Jutla}.} \bibinfo{year}{1991}\natexlab{}.
+\newblock \showarticletitle{Tree automata, mu-calculus and determinacy}. In
+  \bibinfo{booktitle}{\emph{Foundations of Computer Science, 1991.
+  Proceedings., 32nd Annual Symposium on}}. IEEE, \bibinfo{pages}{368--377}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Fisman, Kupferman, and Lustig}{Fisman
+  et~al\mbox{.}}{2010}]%
+        {dana2010book}
+\bibfield{author}{\bibinfo{person}{Dana Fisman}, \bibinfo{person}{Orna
+  Kupferman}, {and} \bibinfo{person}{Yoad Lustig}.}
+  \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Rational Synthesis}. In
+  \bibinfo{booktitle}{\emph{Tools and Algorithms for the Construction and
+  Analysis of Systems}}, \bibfield{editor}{\bibinfo{person}{Javier Esparza}
+  {and} \bibinfo{person}{Rupak Majumdar}} (Eds.). \bibinfo{publisher}{Springer
+  Berlin Heidelberg}, \bibinfo{address}{Berlin, Heidelberg},
+  \bibinfo{pages}{190--204}.
+\newblock
+\showISBNx{978-3-642-12002-2}
+
+
+\bibitem[\protect\citeauthoryear{Martin}{Martin}{1975}]%
+        {martin1975borel}
+\bibfield{author}{\bibinfo{person}{Donald~A. Martin}.}
+  \bibinfo{year}{1975}\natexlab{}.
+\newblock \showarticletitle{Borel Determinacy}.
+\newblock \bibinfo{journal}{\emph{Annals of Mathematics}}
+  \bibinfo{volume}{102}, \bibinfo{number}{2} (\bibinfo{year}{1975}),
+  \bibinfo{pages}{363--371}.
+\newblock
+\showISSN{0003486X}
+\urldef\tempurl%
+\url{http://www.jstor.org/stable/1971035}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Nash}{Nash}{1950}]%
+        {Nash48}
+\bibfield{author}{\bibinfo{person}{John~F. Nash}.}
+  \bibinfo{year}{1950}\natexlab{}.
+\newblock \showarticletitle{Equilibrium points in n-person games}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the National Academy of
+  Sciences}} \bibinfo{volume}{36}, \bibinfo{number}{1} (\bibinfo{year}{1950}),
+  \bibinfo{pages}{48--49}.
+\newblock
+\showISSN{0027-8424}
+\urldef\tempurl%
+\url{https://doi.org/10.1073/pnas.36.1.48}
+\showDOI{\tempurl}
+\showeprint{https://www.pnas.org/content/36/1/48.full.pdf}
+
+
+\bibitem[\protect\citeauthoryear{Shapley}{Shapley}{1953}]%
+        {shapley1953stochastic}
+\bibfield{author}{\bibinfo{person}{Lloyd~S Shapley}.}
+  \bibinfo{year}{1953}\natexlab{}.
+\newblock \showarticletitle{Stochastic games}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the national academy of
+  sciences}} \bibinfo{volume}{39}, \bibinfo{number}{10} (\bibinfo{year}{1953}),
+  \bibinfo{pages}{1095--1100}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ummels and Wojtczak}{Ummels and
+  Wojtczak}{2011}]%
+        {ummels2011complexity}
+\bibfield{author}{\bibinfo{person}{Michael Ummels} {and}
+  \bibinfo{person}{Dominik Wojtczak}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{The complexity of Nash equilibria in stochastic
+  multiplayer games}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:1109.4017}}
+  (\bibinfo{year}{2011}).
+\newblock
+
+
+\end{thebibliography}

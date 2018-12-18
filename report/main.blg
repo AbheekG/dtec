@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: references.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty publisher in chatterjee2014doomsday
+Warning--empty address in chatterjee2014doomsday
+Warning--empty publisher in emerson1991tree
+Warning--empty address in emerson1991tree
+Warning--no number and no volume in ummels2011complexity
+Warning--page numbers missing in both pages and numpages fields in ummels2011complexity
+You've used 8 entries,
+            5733 wiz_defined-function locations,
+            1362 strings with 16160 characters,
+and the built_in function-call counts, 10116 in all, are:
+= -- 1404
+> -- 278
+< -- 0
++ -- 88
+- -- 108
+* -- 650
+:= -- 952
+add.period$ -- 41
+call.type$ -- 8
+change.case$ -- 49
+chr.to.int$ -- 8
+cite$ -- 14
+duplicate$ -- 897
+empty$ -- 632
+format.name$ -- 118
+if$ -- 2522
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 35
+newline$ -- 118
+num.names$ -- 66
+pop$ -- 314
+preamble$ -- 1
+purify$ -- 121
+quote$ -- 0
+skip$ -- 309
+stack$ -- 0
+substring$ -- 819
+swap$ -- 99
+text.length$ -- 19
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 170
+warning$ -- 6
+while$ -- 74
+width$ -- 0
+write$ -- 193
+(There were 6 warnings)
