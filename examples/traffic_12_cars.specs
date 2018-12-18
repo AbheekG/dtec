@@ -1,0 +1,20 @@
+# We are only implementing reachability objectives.
+# Specify similar to partitions.
+# The set of propositions for each player starts 
+# with { and ends with }.
+# Write each set seperated by comma ',' or one in a line
+# It should match number of players specified in model
+
+~REACHABILITY~
+{reach1}
+{reach2}
+{reach3}
+{reach4}
+{reach5}
+{reach6}
+{reach7}
+{reach8}
+{reach9}
+{reach10}
+{reach11}
+{reach12}

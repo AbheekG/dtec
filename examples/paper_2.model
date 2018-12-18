@@ -1,0 +1,43 @@
+# The second example given in the paper. DD equilibria YES.
+
+~STATES~
+XXX
+NXX,YXX
+NNX,NYX,YNX,YYX
+NNN,NNY,NYN,NYY,YNN,YNY,YYN,YYY
+
+~PARTITIONS~
+{XXX,NNX,NYX,YNX,YYX,    NNN,NNY,NYN,NYY,YNN,YNY,YYN,YYY}
+{NXX,YXX}
+
+~INITIAL STATE~
+XXX
+
+~ALPHABET~
+# Send money/Confirm: yes or no.
+YES,NO
+
+~TRANSITION FUNCTION~
+XXX = NO : NXX | YES : YXX
+NXX = NO : NNX | YES : NYX
+YXX = NO : YNX | YES : YYX
+NNX = NO : NNN | YES : NNY
+NYX = NO : NYN | YES : NYY
+YNX = NO : YNN | YES : YNY
+YYX = NO : YYN | YES : YYY
+NNN = * : NNN
+NNY = * : NNY
+NYN = * : NYN
+NYY = * : NYY
+YNN = * : YNN
+YNY = * : YNY
+YYN = * : YYN
+YYY = * : YYY
+
+~ATOMIC PROPOSITIONS~
+SENDA,SENDB
+
+~LABELING FUNCTION~
+NYY = SENDB
+YNY = SENDA
+YYY = SENDA | SENDB

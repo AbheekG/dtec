@@ -1,0 +1,34 @@
+# The first example given in the paper. No DD equilibria.
+
+~STATES~
+XX
+NX,YX
+NN,NY,YN,YY
+
+~PARTITIONS~
+{XX,NN,NY,YN,YY}
+{NX,YX}
+
+~INITIAL STATE~
+XX
+
+~ALPHABET~
+# Send money or not.
+YES,NO
+
+~TRANSITION FUNCTION~
+XX = NO : NX | YES : YX
+NX = NO : NN | YES : NY
+YX = NO : YN | YES : YY
+NN = * : NN
+NY = * : NY
+YN = * : YN
+YY = * : YY
+
+~ATOMIC PROPOSITIONS~
+SENDA,SENDB
+
+~LABELING FUNCTION~
+NY = SENDB	# A gets money but doesn't send
+YN = SENDA	# B gets money but doesn't send
+YY = SENDA | SENDB
