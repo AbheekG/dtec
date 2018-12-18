@@ -139,7 +139,7 @@ int Model::construct (const string &file_name) {
 
 		// Getting domain state.
 		if (cur >= tokens.size() || state_to_int.count (tokens[cur]) == 0) {
-			cout << "Problem processing TF. State not found.\n";
+			cout << "Problem processing TF. State not found."<<tokens[cur]<<"\n";
 			return 501;
 		}
 

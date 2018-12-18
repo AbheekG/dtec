@@ -1,30 +1,22 @@
 CCFLAGS=-std=c++14
 CC=g++
 
-main: main.o model.o
-	$(CC) -o main main.o model.o 
+dtec: dtec.o model.o parser.o checker.o
+	$(CC) -o dtec dtec.o model.o parser.o checker.o
 
-main.o: main.cc
-	$(CC) $(CCFLAGS) -c main.cc
+dtec.o: dtec.cc model.hh
+	$(CC) $(CCFLAGS) -c dtec.cc
 
 model.o: model.cc model.hh
 	$(CC) $(CCFLAGS) -c model.cc
 
+parser.o: parser.cc model.hh
+	$(CC) $(CCFLAGS) -c parser.cc
+
+checker.o: checker.cc model.hh
+	$(CC) $(CCFLAGS) -c checker.cc
+
 .PHONY: clean
 
 clean:
-	rm -f *.o *~ main
-
-
-# CPPFLAGS=-std=c++14
-# SDIR=src
-# CC=g++
-
-# main: main.o model.o
-# 	$(CC) -o main main.o model.o 
-
-# main.o: $(SDIR)/main.cc
-# 	$(CC) $(CPPFLAGS) -c main.cc
-
-# model.o: $(SDIR)/model.cc $(SDIR)/model.hh
-# 	$(CC) $(CPPFLAGS) -c model.cc
+	rm -f *.o *~ dtec

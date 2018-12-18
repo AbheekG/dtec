@@ -7,8 +7,6 @@ for the reachability objectives ( Reach ( T i )) 1 ≤ i ≤ n . Let s be the fi
 strategy from s, against all the other players, to reach his target set.
 */
 
-set<int> intersect(const set<int>&, const set<int>&);
-
 int Model::check () {
 
 	// States from which a player can force reach its objective.
@@ -16,9 +14,6 @@ int Model::check () {
 
 	// States from which a player can force -- I reach or no-one reaches.
 	vector< set<int> > force_i_or_no_one (n_partitions);
-
-	// 
-
 
 	// Eventually reach computation.
 	for (int p = 0; p < n_partitions; ++p) {
@@ -42,7 +37,7 @@ int Model::check () {
 					for (const auto & next_s : TF_list[s]) {
 						if (force_reach_for_me[p].count(next_s) > 0) {
 							good = true;
-							// cout << "\nCase 1 insert due to : " << int_to_state[next_s] << endl;
+							// cout << p << " Case 1 insert due to : " << int_to_state[next_s] << endl;
 							break;
 						}
 					}
@@ -56,7 +51,7 @@ int Model::check () {
 						}
 					}
 					// if (good) {
-					// 	cout << "\nCase 2 insert due to : ";
+					// 	cout << p << " Case 2 insert due to : ";
 					// 	for (const auto & next_s : TF_list[s]) cout << int_to_state[next_s] << " ";
 					// 	cout << endl;
 					// }
@@ -136,7 +131,8 @@ int Model::check () {
 		everyone_can_force_reach = intersect(
 			everyone_can_force_reach, force_reach_for_me[p]);
 	}
-	cout << "Everyone can force reach size = " << everyone_can_force_reach.size() << endl;
+	cout << "\nEveryone can force reach size = " << everyone_can_force_reach.size() << endl;
+	// for (const auto &s : everyone_can_force_reach) cout << int_to_state[s] << " ";
 
 	// Everyone can reach or retaliate.
 	// Essentially, intersection of individual force_i_or_no_one
@@ -147,18 +143,49 @@ int Model::check () {
 		everyone_can_reach_or_retaliate = intersect(
 			everyone_can_reach_or_retaliate, force_i_or_no_one[p]);
 	}
-	cout << "Everyone can reach or retaliate size = " << everyone_can_reach_or_retaliate.size() << endl;
+	cout << "Everyone can reach or retaliate size = " << everyone_can_reach_or_retaliate.size() << "\n\n";
+	// for (const auto &s : everyone_can_reach_or_retaliate) cout << int_to_state[s] << " ";
 
 
-	// Now doing BFS to find path as given in second point of paper.
+	// Checking equilibrium, path to equilibrium
+	vector<bool> visited(n_states);
+	vector<int> path;
+	bool eq_exists = dfs (everyone_can_force_reach,
+		everyone_can_reach_or_retaliate, path, visited, init_state);
+
+	if (eq_exists) {
+		cout << "\n\nHurray! Equibrium found.\n";
+		for (const auto &p : path) cout << int_to_state[p] << " --> ";
+		cout << "DONE!\n";
+	} else {
+		cout << "\n\nNo equilibrium found!\n";
+	}
+
+	return 0;
+}
+
+set<int> Model::intersect(const set<int>& s1, const set<int>& s2) {
+	set<int> s3;
+	std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+		std::inserter(s3, s3.begin()));
+	return s3;
+}
+
+// Now doing BFS to find path as given in second point of paper.
+bool Model::bfs (const set<int>& everyone_can_force_reach,
+	const set<int>& everyone_can_reach_or_retaliate,
+	vector<int>& path) {
+
+	int eq_exists = -1;
 	vector<bool> visited(n_states);
 	queue<int> next_states;
 	next_states.push(init_state);
 
-	int eq_exists = -1;
 	while (not next_states.empty()) {
 		int s = next_states.front();
 		next_states.pop();
+		if (visited[s]) continue;
+		else visited[s] = true;
 		cout << "Checking state = " << int_to_state[s] << endl;
 
 		// Finding player.
@@ -175,24 +202,52 @@ int Model::check () {
 			break;
 		} else if (everyone_can_reach_or_retaliate.count(s) > 0) {
 			for (const auto& next_s : TF_list[s]) {
-				cout << next_s << " $ ";
+				// cout << next_s << " $ ";
 				next_states.push(next_s);
 			}
 		}
 	}
 
-	if (eq_exists < 0) {
-		cout << "No equilibrium found!\n";
-	} else {
-		cout << "Hurray! Equibrium found at state = " << int_to_state[eq_exists] << endl;
-	}
-
-	return 0;
+	return (eq_exists >= 0);
 }
 
-set<int> intersect(const set<int>& s1, const set<int>& s2) {
-	set<int> s3;
-	std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-		std::inserter(s3, s3.begin()));
-	return s3;
+// Now doing DFS to find path as given in second point of paper.
+bool Model::dfs (const set<int>& everyone_can_force_reach,
+	const set<int>& everyone_can_reach_or_retaliate,
+	vector<int>& path, vector<bool>& visited, int s) {
+
+	if (visited[s]) return false;
+	else visited[s] = true;
+
+	// Finding player.
+	int player = -1;
+	for (int p = 0; p < n_partitions; ++p) {
+		if (partitions[p].count(s) > 0) {
+			player = p;
+		}
+	}
+	assert(player >= 0);
+
+	cout << "Checking state = " << int_to_state[s] << endl;
+	path.push_back(s);
+
+	if (everyone_can_force_reach.count(s) > 0 && reach_set[player].count(s) > 0) {
+		// return without pop.
+		return true;
+	}
+	else if (everyone_can_reach_or_retaliate.count(s) > 0) {
+		for (const auto& next_s : TF_list[s]) {
+			if (dfs (everyone_can_force_reach,
+				everyone_can_reach_or_retaliate, path, visited, next_s)) {
+				return true;
+			}
+		}
+	}
+	else {
+		cout << "Both case 1 and case 2 FALSE\n";
+	}
+
+	path.pop_back();
+
+	return false;
 }

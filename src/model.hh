@@ -59,6 +59,10 @@ class Model {
 	void print_model ();
 	void print_specs ();
 
+	// For checking.
+	set<int> intersect(const set<int>&, const set<int>&);
+	bool bfs(const set<int>&, const set<int>&, vector<int>&);
+	bool dfs(const set<int>&, const set<int>&, vector<int>&, vector<bool>&, int);
 public:
 	int construct (const string &);
 	int parse_specs (const string &);
